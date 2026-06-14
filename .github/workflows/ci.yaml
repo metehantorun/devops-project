@@ -27,9 +27,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run lint and syntax check
+    - name: Run unit tests with pytest
       run: |
-        python -m compileall app.py
+        pytest test_app.py
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
