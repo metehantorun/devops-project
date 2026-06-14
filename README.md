@@ -77,3 +77,5 @@ Proje, yerel Kubernetes (Minikube) cluster'ı üzerinde ayağa kaldırılmış v
 
 ### Altyapı İstek Akış Mimarisi
 `İstek (İnternet)` -> `ngrok Cloud` -> `Lokal ngrok Tüneli` -> `Minikube Proxy (Port: 11418)` -> `Kubernetes NodePort Service (Port: 30005)` -> `Pod (Flask App - Port: 5000)`
+
+![Architecture Sketch](architecture.png)
