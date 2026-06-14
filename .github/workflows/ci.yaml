@@ -20,7 +20,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-python-version: '3.11'
+        python-version: '3.11'
 
     - name: Install dependencies
       run: |
@@ -32,9 +32,6 @@ jobs:
         python -m compileall app.py
 
     - name: Set up Docker Buildx
-      uses: docker/setup-qemu-action@v3
-      
-    - name: Configure Docker
       uses: docker/setup-buildx-action@v3
 
     - name: Log in to GitHub Container Registry
