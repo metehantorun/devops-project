@@ -64,3 +64,16 @@ curl http://localhost:5000/healthz
 - Konteyner içinde `root` yetkisi **kullanılmamaktadır**.
 - Uygulama kullanıcısı: `appuser` (UID: `10001`)
 - Multi-stage build sayesinde build araçları ve geliştirme bağımlılıkları final imaja dahil **edilmemektedir**.
+
+---
+
+## Canlı Ortam Değerlendirmesi (Production Preview)
+
+Proje, yerel Kubernetes (Minikube) cluster'ı üzerinde ayağa kaldırılmış ve güvenli bir tünel (ngrok) vasıtasıyla dış dünyaya/internete açık hale getirilmiştir.
+
+* **Canlı API URL:** [https://importer-subsector-probe.ngrok-free.dev](https://importer-subsector-probe.ngrok-free.dev)
+* **Canlı Ping Endpoint'i:** `https://importer-subsector-probe.ngrok-free.dev/ping`
+* **Canlı Sağlık Kontrolü:** `https://importer-subsector-probe.ngrok-free.dev/healthz`
+
+### Altyapı İstek Akış Mimarisi
+`İstek (İnternet)` -> `ngrok Cloud` -> `Lokal ngrok Tüneli` -> `Minikube Proxy (Port: 11418)` -> `Kubernetes NodePort Service (Port: 30005)` -> `Pod (Flask App - Port: 5000)`
